@@ -22,7 +22,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: env.GIT_CREDENTIALS_ID, url: env.GIT_REPO_URL
+                git branch: 'main', credentialsId: env.GIT_CREDENTIALS_ID, url: env.GIT_REPO_URL
             }
         }
 
