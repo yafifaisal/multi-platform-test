@@ -28,8 +28,6 @@ public class FileElectronicRecordSteps {
         } else {
             fileElectronicRecordPage.uploadDocument(fileName);
         }
-        String uniqueFileName = FileHelper.copyAndRenameFileWithTimestamp(fileName);
-        fileElectronicRecordPage.uploadDocument(uniqueFileName);
     }
 
     @Given("I select folder {string}")

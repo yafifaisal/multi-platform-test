@@ -1,0 +1,57 @@
+# === Java ===
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.ear
+*.iml
+*.ipr
+*.iws
+
+# === OS-specific ===
+.DS_Store
+Thumbs.db
+
+# === Maven ===
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# === IntelliJ IDEA ===
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# === VS Code ===
+.vscode/
+
+# === Eclipse ===
+.project
+.classpath
+.settings/
+bin/
+
+# === Test Reports & Screenshots ===
+test-output/
+reports/
+allure-results/
+allure-report/
+target/allure-results/
+target/allure-report/
+src/test/reports/screenshots/
+
+# === Logs ===
+*.log
+log/
+
+# === Temporary Files ===
+*.tmp
+*.swp
+*.bak
+*.old
+
+# === Uploaded or Generated Test Files ===
+src/test/resources/test-data/tempFiles/

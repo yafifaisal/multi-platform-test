@@ -2,6 +2,8 @@ package pages;
 
 import drivers.DriverManager;
 import io.qameta.allure.Allure;
+
+import java.io.File;
 import java.time.Duration;
 import java.util.Set;
 
@@ -154,8 +156,22 @@ public class BasePage {
 
     protected void uploadFile(WebElement uploadButtonElement, String fileName) {
         try {
-            String fullPath = System.getProperty("user.dir") + "/src/test/resources/test-data/files/" + fileName;
+            String fullPath;
+            File file = new File(fileName);
+
+            // Jika fileName sudah absolute path
+            if (file.isAbsolute()) {
+                fullPath = file.getAbsolutePath();
+            } else {
+                fullPath = System.getProperty("user.dir") + "/src/test/resources/test-data/files/" + fileName;
+            }
+
+            if (!new File(fullPath).exists()) {
+                throw new RuntimeException("Upload file not found: " + fullPath);
+            }
+
             uploadButtonElement.sendKeys(fullPath);
+            System.out.println("Uploaded file: " + fullPath);
         } catch (Exception e) {
             System.out.println("Upload failed for file: " + fileName + " -> " + e.getMessage());
             throw e;

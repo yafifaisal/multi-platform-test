@@ -11,37 +11,40 @@ import org.openqa.selenium.TakesScreenshot;
 
 import drivers.DriverManager;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import io.cucumber.java.Scenario;
+import io.qameta.allure.Allure;
 import utilities.AllureEnvironmentWriter;
 
 public class Hooks {
 
     @BeforeAll
-    public static void cleanScreenshotsFolder() {
+    public static void beforeAll() {
         File folder = new File("src/test/reports/screenshots/");
         if (folder.exists()) {
             try {
-                FileUtils.cleanDirectory(folder); // removes all files but keeps the folder
-                System.out.println("Screenshots folder cleaned.");
+                FileUtils.cleanDirectory(folder);
             } catch (IOException e) {
                 System.err.println("Failed to clean screenshots folder: " + e.getMessage());
             }
         } else {
-            folder.mkdirs(); // create folder if it doesn't exist
-            System.out.println("Screenshots folder created.");
+            boolean created = folder.mkdirs();
+            if (created)
+                System.out.println("Screenshots folder created.");
         }
     }
 
     @Before
-    public void setUp() {
+    public void before() {
         DriverManager.initDriver();
         AllureEnvironmentWriter.setAllureEnvironmentInformation();
     }
 
-    @After
-    public void tearDown(Scenario scenario) {
+    @AfterStep
+    public void afterStep(Scenario scenario) {
         if (scenario.isFailed()) {
             // Take screenshot in memory
             TakesScreenshot ts = (TakesScreenshot) DriverManager.getDriver();
@@ -66,7 +69,18 @@ public class Hooks {
                 System.err.println("Failed to save screenshot to file: " + e.getMessage());
             }
         }
+        Allure.step("Step completed: " + scenario.getName());
+
+    }
+
+    @After
+    public void after() {
         DriverManager.quitDriver();
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        utilities.FileHelper.cleanUpTempFiles();
     }
 
 }
