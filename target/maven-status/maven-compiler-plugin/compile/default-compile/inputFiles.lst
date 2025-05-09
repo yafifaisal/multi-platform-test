@@ -1,0 +1,13 @@
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/drivers/DriverManager.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/pages/BasePage.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/pages/DashboardPage.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/pages/FileElectronicRecordPage.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/pages/LoginPage.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/utilities/AllureEnvironmentWriter.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/utilities/ConfigReader.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/utilities/FileHelper.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/utilities/PageManager.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/utilities/RetryAnalyzer.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/utilities/TestDataGenerator.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/utilities/UserDataReader.java
+/Users/yafi/Yafi/yafi's project/krisdemo/src/main/java/utilities/WaitUtils.java
