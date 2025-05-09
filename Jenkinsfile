@@ -11,7 +11,7 @@ pipeline {
     }
 
     environment {
-        GIT_REPO_URL = 'https://github.com/yafifaisal/api-test-pet-store.git'
+        GIT_REPO_URL = 'https://github.com/yafifaisal/krisdemo.git'
         GIT_CREDENTIALS_ID = '1b260b41-27a1-411c-951d-1ebae23c2270'
     }
 
