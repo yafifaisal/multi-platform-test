@@ -23,7 +23,7 @@ public class FileElectronicRecordSteps {
     @Given("I upload {string} document {string}")
     public void i_upload_new_document(String documentType, String fileName) {
         if (documentType.equalsIgnoreCase("new")) {
-            String uniqueFileName = FileHelper.copyAndRenameFileWithTimestamp(fileName);
+            String uniqueFileName = FileHelper.generateTimestampedPdf(FileHelper.removePdfExtension(fileName));
             fileElectronicRecordPage.uploadDocument(uniqueFileName);
         } else {
             fileElectronicRecordPage.uploadDocument(fileName);
