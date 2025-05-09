@@ -15,10 +15,14 @@ pipeline {
         GIT_CREDENTIALS_ID = '1b260b41-27a1-411c-951d-1ebae23c2270'
     }
 
+    triggers {
+        githubPush()
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                git credentialsId: env.GIT_CREDENTIALS_ID, url: env.GIT_REPO_URL
             }
         }
 
@@ -32,7 +36,6 @@ pipeline {
             steps {
                 allure([
                     includeProperties: false,
-                    jdk: '',
                     results: [[path: 'target/allure-results']]
                 ])
             }
