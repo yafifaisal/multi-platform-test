@@ -3,7 +3,6 @@ Feature: File Electronic Record
 
     @negative
     Scenario Outline: Filing with Valid PDF Record and Clicking Action
-        # Precondition: Reset File and Folder so we can repeatedly upload same file in same folder
         Given I am successfully logged in with user "file electronic record user"
         And I click New Document button at Dashboard Page
         And I click Electronic Document button at New Document list
