@@ -13,16 +13,4 @@ public class TestDataGenerator {
     public static String getRandomPassword() {
         return faker.internet().password(8, 16, true, true);
     }
-
-    public static String getRandomEmail() {
-        return faker.internet().emailAddress();
-    }
-
-    public static String getRandomPhoneNumber() {
-        return faker.phoneNumber().cellPhone();
-    }
-
-    public static String getRandomFullName() {
-        return faker.name().fullName();
-    }
 }

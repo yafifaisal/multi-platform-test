@@ -9,5 +9,5 @@ import io.cucumber.testng.CucumberOptions;
         "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
         "json:target/allure-results/results.json" }, tags = "@smoke", monochrome = true)
 public class TestNGCucumberRunner extends AbstractTestNGCucumberTests {
-    // No extra code needed. TestNG will pick up the scenarios.
+
 }
