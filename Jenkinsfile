@@ -44,6 +44,16 @@ pipeline {
     }
 
     post {
+        always {
+            publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'target/cucumber-reports',
+                reportFiles: 'cucumber.html',
+                reportName: 'Cucumber Test Report'
+            ])
+        }
         success {
             echo '✅ Tests passed successfully!'
         }
