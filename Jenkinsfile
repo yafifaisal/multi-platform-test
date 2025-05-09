@@ -4,7 +4,7 @@ pipeline {
     parameters {
         string(name: 'BROWSER', defaultValue: 'chrome', description: 'Browser to use')
         string(name: 'TAGS', defaultValue: '@smoke', description: 'Cucumber Tags')
-        string(name: 'HEADLESS', defaultValue: true, description: 'Headless browser execution')
+        string(name: 'HEADLESS', defaultValue: 'true', description: 'Headless browser execution')
     }
 
     tools {
