@@ -30,7 +30,7 @@ pipeline {
 
         stage('Build & Test') {
             steps {
-                sh "mvn clean test -Dbrowser=${params.BROWSER} -Dcucumber.filter.tags='${params.TAGS}' -Dheadless=${params.HEADLESS}"
+                sh "mvn clean test -Dbrowser=${params.BROWSER} -Dcucumber.filter.tags='${params.TAGS}' -Dheadless='${params.HEADLESS}'"
             }
         }
 
