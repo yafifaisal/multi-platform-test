@@ -7,6 +7,7 @@ pipeline {
     }
 
     tools {
+        jdk 'jdk-21'
         maven 'maven-3.9.9'
     }
 
@@ -43,9 +44,6 @@ pipeline {
     }
 
     post {
-        always {
-            junit '**/target/surefire-reports/*.xml'
-        }
         success {
             echo '✅ Tests passed successfully!'
         }
