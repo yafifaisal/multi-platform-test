@@ -1,6 +1,12 @@
-# 🌲 krisdemo - Automated UI Testing Framework
+# 🌲 multi-platform-test - Automated Testing Framework
 
-Welcome to **krisdemo**, an automated UI testing framework designed using Java, Selenium WebDriver, TestNG, and Cucumber BDD. This project is tailored for robust test automation in web applications, integrated with **Allure Reports**, **Jenkins CI/CD**, and **GitHub**.
+**multi-platform-test** is a comprehensive, scalable test automation framework built using **Java**, with a structured **Cucumber BDD** approach and powered by **TestNG**.
+
+This framework is designed for end-to-end testing across multiple platforms:
+
+- ✅ **Web UI Testing** with [Selenium WebDriver](https://www.selenium.dev/)
+- 📱 **Mobile App Testing** using [Appium](https://appium.io/)
+- 🌐 **API Testing** powered by [Rest Assured](https://rest-assured.io/)
 
 ---
 
@@ -27,8 +33,8 @@ Welcome to **krisdemo**, an automated UI testing framework designed using Java, 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yafifaisal/krisdemo.git
-cd krisdemo
+git clone https://github.com/yafifaisal/multi-platform-test.git
+cd multi-platform-test
 ```
 
 ### 2. Prerequisites
@@ -61,7 +67,7 @@ allure serve target/allure-results
 ### Folder Structure
 
 ```
-krisdemo/
+multi-platform-test/
 ├── pom.xml
 ├── testng.xml
 ├── Jenkinsfile
