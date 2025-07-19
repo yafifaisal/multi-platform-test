@@ -83,7 +83,7 @@ mvn clean test -Papi -Dplatform=api
 
 ### 4. View Cucumber Report
 
-- Go to `src/test/reports`
+- Go to `target` folder
 - Open cucumber-html report
 
 <img width="1460" height="646" alt="Screenshot 2025-07-19 at 22 22 28" src="https://github.com/user-attachments/assets/ffb5fd5f-5939-4797-8231-29c65b558ce9" />
@@ -204,6 +204,7 @@ Feature: Test select date picker and upload image
 
 ## Video Demonstration
 
+https://drive.google.com/file/d/1t_iIzVGd9vqV68k7Vyye7ArVhelswyBm/view?usp=sharing
 
 ---
 
