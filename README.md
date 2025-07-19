@@ -204,7 +204,6 @@ Feature: Test select date picker and upload image
 
 ## Video Demonstration
 
-https://drive.google.com/file/d/1B3oMWq-rdCxuL3dwqcd6ygSDR9FZ6wTu/view?usp=sharing
 
 ---
 
