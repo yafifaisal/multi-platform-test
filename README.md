@@ -81,11 +81,13 @@ mvn clean test -Pmobile -Dplatform=mobile
 mvn clean test -Papi -Dplatform=api
 ```
 
-### 4. View Allure Report
+### 4. View Cucumber Report
 
-```bash
-allure serve target/allure-results
-```
+- Go to `src/test/reports`
+- Open cucumber-html report
+
+<img width="1460" height="646" alt="Screenshot 2025-07-19 at 22 22 28" src="https://github.com/user-attachments/assets/ffb5fd5f-5939-4797-8231-29c65b558ce9" />
+
 
 ---
 
@@ -131,11 +133,18 @@ multi-platform-test/
 ### Feature File Syntax
 
 ```gherkin
-@smoke @positive
-Scenario: Upload a valid PDF
-  Given I am successfully logged in with user "file electronic record user"
-  And I upload "new" document "sample.pdf"
-  Then Assert that dialog message equal with "The record is registered successfully."
+@smoke
+Feature: Test select date picker and upload image
+
+    Scenario: Test select date picker and upload image
+        Given I am on the registration page
+        And I submit the registration form with dummy data
+        When I upload a single file named "sample.pdf"
+        And I upload multiple files
+            | file            |
+            | sample.pdf      |
+            | sample copy.pdf |
+        Then I verify exactly 2 files are uploaded
 ```
 
 ---
