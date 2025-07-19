@@ -50,8 +50,22 @@ brew install allure
 
 ### 3. Execute Tests Locally
 
+#### Web
+
 ```bash
-mvn clean test -Dbrowser=chrome -Dcucumber.filter.tags="@smoke"
+mvn clean test -Pweb -Dplatform=web
+```
+
+#### Mobile
+
+```bash
+mvn clean test -Pmobile -Dplatform=mobile
+```
+
+#### API
+
+```bash
+mvn clean test -Papi -Dplatform=api
 ```
 
 ### 4. View Allure Report
@@ -68,25 +82,37 @@ allure serve target/allure-results
 
 ```
 multi-platform-test/
-├── pom.xml
-├── testng.xml
-├── Jenkinsfile
 ├── src/
-│   ├── main/
-│   │   └── java/
-│   └── test/
-│       ├── java/
+│   ├── main/java/
+│   │   ├── utilities/
+│   │   └── helpers/
+│   └── test/java/
+│       ├── api/
 │       │   ├── stepDefinitions/
-│       │   ├── pages/
 │       │   ├── hooks/
-│       │   ├── runners/
-│       │   └── utilities/
-│       └── resources/
-│           ├── features/
-│           └── test-data/
-│               └── files/
-│               └── tempFiles/
-└── target/
+│       │   └── runners/
+│       ├── mobile/
+│       │   ├── drivers/
+│       │   ├── stepDefinitions/
+│       │   ├── hooks/
+│       │   └── runners/
+│       └── web/
+│           ├── drivers/
+│           ├── stepDefinitions/
+│           ├── hooks/
+│           └── runners/
+│
+├── src/test/resources/
+│   ├── api/
+│   │   ├── features/
+│   │   └── config.properties
+│   ├── mobile/
+│   │   ├── features/
+│   │   └── config.properties
+│   └── web/
+│       ├── features/
+│       ├── test-data/
+│       └── config.properties
 ```
 
 ### Feature File Syntax
@@ -103,7 +129,7 @@ Scenario: Upload a valid PDF
 
 ## 📷 Screenshots on Failure
 
-- Captured in `src/test/reports/screenshots/`
+- Captured in `src/test/reports/screenshots/${platform}`
 - Automatically saved & embedded into Allure report
 
 ---
@@ -123,18 +149,6 @@ Scenario: Upload a valid PDF
   ```
 
 ---
-
-## 🤖 Jenkins Pipeline Setup
-
-### Jenkinsfile Highlights
-
-- Parameterized build: browser, tags, headless
-- GitHub trigger via `githubPush()`
-- Stages:
-  1. Checkout
-  2. Build & Test
-  3. Allure Report
-  4. (Post) HTML Cucumber Report + JUnit results
 
 ### Plugins Required:
 
