@@ -4,13 +4,14 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>forest.krisdemo</groupId>
-    <artifactId>krisdemo</artifactId>
+    <groupId>test.multi-platform-test</groupId>
+    <artifactId>multi-platform-test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+        <rest-assured.version>5.5.0</rest-assured.version>
     </properties>
 
     <dependencies>
@@ -85,7 +86,36 @@
             <artifactId>openpdf</artifactId>
             <version>1.3.30</version>
         </dependency>
-
+        <!-- rest-sassured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured.version}</version>
+        </dependency>
+        <!-- Json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20250517</version>
+        </dependency>
+        <!-- json schema validator -->
+        <dependency>
+            <groupId>com.github.erosb</groupId>
+            <artifactId>everit-json-schema</artifactId>
+            <version>1.14.6</version>
+        </dependency>
+        <!-- Faker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <!-- appium -->
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>9.5.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -96,8 +126,14 @@
                 <version>3.2.5</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${suiteFile}</suiteXmlFile> <!-- read dynamically -->
                     </suiteXmlFiles>
+                    <includes>
+                        <include>**/TestRunner.java</include> <!-- ✅ your actual runner -->
+                    </includes>
+                    <systemPropertyVariables>
+                        <org.apache.commons.logging.Log>org.apache.commons.logging.impl.NoOpLog</org.apache.commons.logging.Log>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
@@ -107,6 +143,33 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>web</id>
+            <properties>
+                <suiteFile>testng-web.xml</suiteFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>api</id>
+            <properties>
+                <suiteFile>testng-api.xml</suiteFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>mobile</id>
+            <properties>
+                <suiteFile>testng-mobile.xml</suiteFile>
+            </properties>
+        </profile>
+        <profile>
+            <id>parallel</id>
+            <properties>
+                <suiteFile>testng-parallel.xml</suiteFile>
+            </properties>
+        </profile>
+    </profiles>
 
 
 </project>
