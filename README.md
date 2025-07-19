@@ -37,6 +37,19 @@ git clone https://github.com/yafifaisal/multi-platform-test.git
 cd multi-platform-test
 ```
 
+📱 Mobile App Setup
+⚠️ Note: To keep the repository lightweight and comply with GitHub’s 100MB file size limit, the mobile APK is not included in the source code.
+
+🔽 Step 1: Download the APK
+Download the latest version of the mobile APK manually from your preferred location (e.g., CI artifact, Google Drive, etc.).
+Download Link: https://trustwallet.com/id
+
+📁 Step 2: Place the APK in the Required Directory
+After downloading the APK, place it in the following path inside the project:
+`src/test/resources/mobile/app/latest.apk`
+
+This path is used in the mobile test capabilities to launch the app during automation runs.
+
 ### 2. Prerequisites
 
 - Java 21
